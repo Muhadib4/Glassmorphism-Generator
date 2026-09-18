@@ -1,4 +1,415 @@
-<!doctype html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Glass Lab — Glassmorphism Generator</title><style>@import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@400;600;700;800&display=swap');:root{--bg:#07080c;--panel:#11131a;--line:#ffffff18;--text:#f5f7fb;--muted:#9298a9;--accent:#a78bfa}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 0,#21163d,transparent 35%),radial-gradient(circle at 95% 5%,#10313d,transparent 30%),var(--bg);color:var(--text);font-family:Manrope,system-ui,sans-serif}button,input,select{font:inherit}button{cursor:pointer;color:inherit}.app{max-width:1450px;margin:auto;padding:20px 26px 45px}.nav{height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 16px 0 20px;border:1px solid var(--line);border-radius:20px;background:#0f1118c7;backdrop-filter:blur(20px);position:sticky;top:14px;z-index:5;box-shadow:0 15px 50px #0005}.brand{display:flex;gap:11px;align-items:center;font-weight:800}.logo{width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,#67e8f9,#a78bfa 55%,#fb7185);box-shadow:0 0 25px #8b5cf655}.links{display:flex;gap:5px}.ghost,.links button{border:0;background:transparent;color:var(--muted);padding:10px 12px;border-radius:10px;font-size:12px}.ghost:hover,.links button:hover{background:#ffffff10;color:#fff}.primary{border:0;border-radius:11px;padding:11px 15px;background:linear-gradient(135deg,#8b5cf6,#38bdf8);font-weight:800}.hero{display:flex;justify-content:space-between;align-items:end;padding:54px 4px 28px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:#c4b5fd;font-weight:800}.hero h1{font-size:clamp(38px,5vw,68px);line-height:1;letter-spacing:-.07em;margin:12px 0}.hero h1 span{color:#a78bfa}.hero p{color:var(--muted);max-width:590px;font-size:15px;line-height:1.7}.hero-art{width:150px;height:100px;position:relative}.hero-art i{position:absolute;inset:12px 25px 18px;border:1px solid #fff4;background:#ffffff0c;border-radius:22px;transform:rotate(-13deg);box-shadow:0 0 32px #67e8f944}.hero-art i+ i{inset:26px 3px 5px 48px;transform:rotate(15deg);box-shadow:0 0 30px #a78bfa55}.workspace{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(320px,.75fr);gap:18px}.surface{border:1px solid var(--line);background:#0e1017d9;border-radius:18px;overflow:hidden;box-shadow:0 22px 70px #0005}.head{display:flex;justify-content:space-between;align-items:center;padding:15px 18px;border-bottom:1px solid var(--line)}.title{text-transform:uppercase;letter-spacing:.1em;font-size:12px;font-weight:800}.sub{font-size:12px;color:var(--muted);margin-top:3px}.preview{height:575px;position:relative;overflow:hidden;background:linear-gradient(130deg,#111827,#312e81,#0e7490);background-size:180% 180%;animation:drift 16s ease infinite}.preview:before,.preview:after{content:'';position:absolute;border-radius:50%;filter:blur(60px);opacity:.6}.preview:before{width:340px;height:340px;background:#7c3aed;top:-140px;left:-100px}.preview:after{width:360px;height:360px;background:#0891b2;right:-110px;bottom:-150px}.grid{position:absolute;inset:0;opacity:.12;background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(transparent,#000 30%,transparent)}.tools{position:absolute;top:16px;left:17px;right:17px;display:flex;justify-content:space-between;z-index:2}.select,.text{background:#10131dcc;border:1px solid #fff2;color:#fff;border-radius:9px;padding:9px 11px;font-size:12px;outline:0}.glow{position:absolute;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,#fff3,transparent 68%);transform:translate(-50%,-50%);pointer-events:none}.card{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(390px,78%);padding:28px;border-radius:var(--radius,24px);background:var(--glassbg);border:var(--bw,1px) solid var(--glassborder);box-shadow:var(--shadow);backdrop-filter:blur(var(--blur,18px)) saturate(var(--sat,150%)) brightness(var(--bright,100%));overflow:hidden;transition:.3s}.card:before{content:'';position:absolute;inset:0;background:linear-gradient(130deg,transparent 20%,#fff2 48%,transparent 66%);pointer-events:none}.card>*{position:relative}.badge{display:inline-block;border:1px solid #fff4;border-radius:99px;padding:5px 9px;color:#dbeafe;font:10px 'DM Mono'}.card h2{font-size:30px;letter-spacing:-.06em;margin:20px 0 10px}.card p{font-size:13px;line-height:1.6;color:#e2e8f0bd;margin-bottom:22px}.foot{display:flex;align-items:center;justify-content:space-between}.avatars{display:flex}.av{width:27px;height:27px;border-radius:50%;margin-right:-7px;border:2px solid #fff8;background:linear-gradient(135deg,#f9a8d4,#818cf8)}.av:nth-child(2){background:linear-gradient(135deg,#67e8f9,#34d399)}.av:nth-child(3){background:linear-gradient(135deg,#fcd34d,#fb7185)}.card-btn{border:0;border-radius:9px;padding:9px 13px;font-size:11px;font-weight:800}.controls{max-height:575px;overflow:auto}.group{padding:17px 18px;border-bottom:1px solid var(--line)}.group h3{display:flex;justify-content:space-between;text-transform:uppercase;letter-spacing:.12em;font-size:12px;margin:0 0 17px}.control{margin:13px 0}.label{display:flex;justify-content:space-between;color:#cbd0dc;font-size:12px;margin-bottom:8px}.val{font:11px 'DM Mono';color:#c4b5fd}.range{width:100%;accent-color:#a78bfa}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.color{display:flex;gap:8px}.color input[type=color]{height:35px;width:40px;padding:3px;border:1px solid var(--line);border-radius:9px;background:#111}.text{min-width:0;width:100%;height:35px;font:12px 'DM Mono'}.toggle{width:39px;height:22px;padding:3px;border:0;border-radius:99px;background:#303442}.toggle i{display:block;width:16px;height:16px;border-radius:50%;background:#8d94a5;transition:.2s}.toggle.on{background:#8b5cf6}.toggle.on i{transform:translateX(17px);background:#fff}.code{margin-top:18px}.tabs{display:flex;gap:4px;padding:10px 14px;border-bottom:1px solid var(--line)}.tabs button{border:0;background:transparent;color:var(--muted);padding:8px 11px;border-radius:8px;font-size:12px}.tabs button.active{background:#282039;color:#fff}.code pre{margin:0;padding:20px;min-height:250px;max-height:390px;overflow:auto;color:#c4b5fd;font:12px/1.75 'DM Mono';white-space:pre-wrap}.tabs .copy{margin-left:auto;background:#8b5cf6;color:#fff}.gallery{margin-top:18px}.presets{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;padding:17px}.preset{min-height:92px;border:1px solid var(--line);border-radius:13px;background:linear-gradient(135deg,var(--p1),var(--p2));position:relative;text-align:left;overflow:hidden;transition:.2s}.preset:hover{transform:translateY(-3px);border-color:#c4b5fd}.preset b{position:absolute;left:11px;bottom:10px;font-size:11px}.saved{padding:18px;color:var(--muted);font-size:13px}.toast{position:fixed;right:24px;bottom:24px;background:#eef2ff;color:#17121f;padding:12px 16px;border-radius:12px;font-size:12px;font-weight:800;opacity:0;transform:translateY(20px);transition:.25s;z-index:9}.toast.show{opacity:1;transform:none}.modal{position:fixed;inset:0;background:#0009;display:none;place-items:center;z-index:8}.modal.open{display:grid}.dialog{background:#151821;border:1px solid var(--line);border-radius:17px;padding:22px;width:min(390px,calc(100% - 30px))}.dialog h3{margin-top:0}.actions{text-align:right;margin-top:18px}@keyframes drift{50%{background-position:100% 50%}}@media(max-width:1050px){.workspace{grid-template-columns:1fr}.controls{max-height:none}.presets{grid-template-columns:repeat(4,1fr)}}@media(max-width:650px){.app{padding:12px}.links{display:none}.hero{padding:38px 4px 24px}.hero-art{display:none}.preview{height:470px}.presets{grid-template-columns:repeat(2,1fr)}}
-</style></head><body><div class="app"><nav class="nav"><div class="brand"><span class="logo"></span>Glass Lab</div><div class="links"><button onclick="go('generator')">Generator</button><button onclick="go('presets')">Presets</button><button onclick="go('saved')">Saved</button></div><div><button class="ghost" onclick="undo()">↶</button><button class="ghost" onclick="redo()">↷</button><button class="primary" onclick="randomize()">✦ Randomize</button></div></nav><header class="hero"><div><div class="eyebrow">Interactive CSS Tool · v1.0</div><h1>Design beautiful glass.<br><span>Copy the CSS.</span></h1><p>Eksplorasi permukaan kaca secara visual, tuning setiap detail, lalu bawa style yang kamu suka langsung ke proyekmu.</p></div><div class="hero-art"><i></i><i></i></div></header><main id="generator" class="workspace"><section class="surface"><div class="head"><div><div class="title">Live preview</div><div class="sub">Drag, tune, create</div></div><button class="ghost" onclick="reset()">Reset</button></div><div class="preview" id="preview"><div class="grid"></div><div class="glow" id="glow"></div><div class="tools"><select class="select" onchange="changeCard(this.value)"><option>Glass Card</option><option>Profile Card</option><option>Pricing Card</option><option>Notification</option></select><span class="sub">⌘ move pointer</span></div><article class="card" id="card"><div class="badge">GLASS UI</div><h2 id="ct">Frosted clarity.</h2><p id="cp">Create beautiful translucent surfaces with blur, borders, shadows, and layered light.</p><div class="foot"><div class="avatars"><i class="av"></i><i class="av"></i><i class="av"></i></div><button class="card-btn">Explore style →</button></div></article></div></section><section class="surface controls"><div class="group"><h3>Glass <span>01</span></h3><div class="control"><div class="label">Transparency <output class="val" id="transparencyV"></output></div><input class="range" id="transparency" type="range" min="0" max="100" value="12"></div><div class="control"><div class="label">Backdrop blur <output class="val" id="blurV"></output></div><input class="range" id="blur" type="range" min="0" max="50" value="18"></div><div class="row"><div class="control"><div class="label">Saturation <output class="val" id="saturationV"></output></div><input class="range" id="saturation" type="range" min="50" max="250" value="150"></div><div class="control"><div class="label">Brightness <output class="val" id="brightnessV"></output></div><input class="range" id="brightness" type="range" min="50" max="150" value="100"></div></div><div class="control"><div class="label">Glass tint <output class="val" id="tintV"></output></div><div class="color"><input id="tint" type="color" value="#ffffff"><input id="tintText" class="text" value="#ffffff"></div></div></div><div class="group"><h3>Border <span>02</span></h3><div class="row"><div class="control"><div class="label">Width <output class="val" id="borderWidthV"></output></div><input class="range" id="borderWidth" type="range" min="0" max="5" step=".5" value="1"></div><div class="control"><div class="label">Opacity <output class="val" id="borderOpacityV"></output></div><input class="range" id="borderOpacity" type="range" min="0" max="100" value="22"></div></div><div class="control"><div class="label">Radius <output class="val" id="radiusV"></output></div><input class="range" id="radius" type="range" min="0" max="64" value="24"></div><div class="row"><div class="control"><div class="label">Border color</div><input id="borderColor" type="color" value="#ffffff"></div><div class="control"><div class="label">Shadow color</div><input id="shadowColor" type="color" value="#000000"></div></div></div><div class="group"><h3>Shadow <span>03</span></h3><div class="row"><div class="control"><div class="label">X <output class="val" id="shadowXV"></output></div><input class="range" id="shadowX" type="range" min="-50" max="50" value="0"></div><div class="control"><div class="label">Y <output class="val" id="shadowYV"></output></div><input class="range" id="shadowY" type="range" min="-60" max="60" value="24"></div></div><div class="control"><div class="label">Blur <output class="val" id="shadowBlurV"></output></div><input class="range" id="shadowBlur" type="range" min="0" max="150" value="50"></div><div class="control"><div class="label">Opacity <output class="val" id="shadowOpacityV"></output></div><input class="range" id="shadowOpacity" type="range" min="0" max="100" value="30"></div></div><div class="group"><h3>Advanced <span>04</span></h3><div class="label">Reflection <button class="toggle on" id="reflection" onclick="this.classList.toggle('on');apply()"><i></i></button></div><div class="control"><div class="label">Reflection intensity <output class="val" id="reflectionV"></output></div><input class="range" id="reflectionIntensity" type="range" min="0" max="50" value="12"></div></div></section></main><section class="surface code"><div class="head"><div><div class="title">Generated code</div><div class="sub">Production-ready output</div></div><div><button class="ghost" onclick="openSave()">＋ Save preset</button><button class="primary" onclick="copyCode()">Copy code</button></div></div><div class="tabs"><button class="active" data-tab="css" onclick="tab(this)">CSS</button><button data-tab="vars" onclick="tab(this)">CSS Variables</button><button data-tab="tailwind" onclick="tab(this)">Tailwind</button><button data-tab="react" onclick="tab(this)">React</button></div><pre id="output"></pre></section><section class="surface gallery" id="presets"><div class="head"><div><div class="title">Curated presets</div><div class="sub">Start with a considered direction</div></div></div><div class="presets" id="presetGrid"></div></section><section class="surface gallery" id="saved"><div class="head"><div><div class="title">Saved styles</div><div class="sub">Stored locally in your browser</div></div><button class="ghost" onclick="exportConfig()">Export config ↓</button></div><div class="saved" id="savedList">No saved glass yet. Create a style you love and save it here.</div></section><footer style="display:flex;justify-content:space-between;color:#697184;font-size:11px;padding:22px 4px"><span>Glass Lab · Design beautiful glass.</span><span>Everything stays in your browser · Press R to randomize</span></footer></div><div class="toast" id="toast"></div><div class="modal" id="modal"><div class="dialog"><h3>Save your glass</h3><input class="text" id="name" placeholder="Preset name"><div class="actions"><button class="ghost" onclick="closeSave()">Cancel</button><button class="primary" onclick="savePreset()">Save preset</button></div></div></div><script>
-const D={transparency:12,blur:18,saturation:150,brightness:100,borderWidth:1,borderOpacity:22,radius:24,shadowX:0,shadowY:24,shadowBlur:50,shadowOpacity:30,reflectionIntensity:12,tint:'#ffffff',borderColor:'#ffffff',shadowColor:'#000000'};let c={...D},stack=[],redoStack=[],tabName='css';const P=[['Frosted','#fff','#64748b',{transparency:14,blur:22}],['Crystal','#dbeafe','#38bdf8',{transparency:18,blur:28}],['Deep Glass','#111827','#312e81',{transparency:24,blur:16}],['Aurora','#a855f7','#22d3ee',{transparency:12,blur:30}],['Ice','#e0f2fe','#93c5fd',{transparency:22,blur:34}],['Rose','#fda4af','#c084fc',{transparency:16,blur:20}],['Cyber','#06b6d4','#d946ef',{transparency:10,blur:14}],['Smoke','#64748b','#0f172a',{transparency:28,blur:12}],['Ocean','#0e7490','#1e3a8a',{transparency:19,blur:25}],['Violet','#8b5cf6','#ec4899',{transparency:13,blur:24}],['Minimal','#fff','#94a3b8',{transparency:8,blur:10}],['Liquid','#34d399','#06b6d4',{transparency:15,blur:31}]];const $=x=>document.getElementById(x),rgb=h=>{h=h.slice(1);let n=parseInt(h,16);return[(n>>16)&255,(n>>8)&255,n&255]},rgba=(h,a)=>{let x=rgb(h);return`rgba(${x[0]},${x[1]},${x[2]},${a})`};function toast(x){$('toast').textContent=x;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),2000)}function apply(push=true){if(push){stack.push(JSON.stringify(c));if(stack.length>30)stack.shift();redoStack=[]}let o=$('card').style,bg=rgba(c.tint,c.transparency/100),bd=rgba(c.borderColor,c.borderOpacity/100),sh=`${c.shadowX}px ${c.shadowY}px ${c.shadowBlur}px ${c.shadowBlur/3}px ${rgba(c.shadowColor,c.shadowOpacity/100)}`;o.setProperty('--glassbg',bg);o.setProperty('--glassborder',bd);o.setProperty('--bw',c.borderWidth+'px');o.setProperty('--radius',c.radius+'px');o.setProperty('--blur',c.blur+'px');o.setProperty('--sat',c.saturation+'%');o.setProperty('--bright',c.brightness+'%');o.setProperty('--shadow',sh);document.querySelector('.card').style.setProperty('--reflection',c.reflectionIntensity/100);for(let k in c){let e=$(k);if(e&&e.type!=='color')e.value=c[k];let v=$(k+'V');if(v)v.textContent=c[k]+(['transparency','borderOpacity','shadowOpacity','reflectionIntensity'].includes(k)?'%':'px')} $('tintV').textContent=c.tint;generate();localStorage.setItem('glass-config',JSON.stringify(c))}function generate(){let bg=rgba(c.tint,c.transparency/100),bd=rgba(c.borderColor,c.borderOpacity/100),sh=`${c.shadowX}px ${c.shadowY}px ${c.shadowBlur}px ${c.shadowBlur/3}px ${rgba(c.shadowColor,c.shadowOpacity/100)}`,css=`.glass {\n  background: ${bg};\n  border: ${c.borderWidth}px solid ${bd};\n  border-radius: ${c.radius}px;\n  box-shadow: ${sh};\n  backdrop-filter: blur(${c.blur}px) saturate(${c.saturation}%) brightness(${c.brightness}%);\n  -webkit-backdrop-filter: blur(${c.blur}px) saturate(${c.saturation}%) brightness(${c.brightness}%);\n  overflow: hidden;\n}`;let vars=`:root {\n  --glass-bg: ${bg};\n  --glass-blur: ${c.blur}px;\n  --glass-border: ${bd};\n  --glass-radius: ${c.radius}px;\n  --glass-shadow: ${sh};\n}\n\n.glass { background: var(--glass-bg); border-radius: var(--glass-radius); backdrop-filter: blur(var(--glass-blur)); }`;let tw=`<div class="bg-white/[.${String(c.transparency).padStart(2,'0')}] border-white/[.${String(c.borderOpacity).padStart(2,'0')}] rounded-[${c.radius}px] backdrop-blur-[${c.blur}px]">\n  Your content\n</div>`;let react=`export function GlassCard({ children }) {\n  return <div className="glass">{children}</div>;\n}\n\n/* Generated CSS */\n${css}`;$('output').textContent={css,vars,tailwind:tw,react}[tabName]}function tab(b){document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('active'));b.classList.add('active');tabName=b.dataset.tab;generate()}function preset(p){Object.assign(c,D,p[3]);$('preview').style.background=`linear-gradient(130deg,${p[1]},${p[2]},#0e7490)`;apply();toast(p[0]+' preset applied')}function randomize(){let p=P[Math.floor(Math.random()*P.length)];preset(p);c.transparency=6+Math.floor(Math.random()*25);c.blur=8+Math.floor(Math.random()*28);c.radius=12+Math.floor(Math.random()*25);apply();toast('A fresh style was generated')}function reset(){c={...D};apply();toast('Reset completed')}function undo(){if(stack.length<2)return;redoStack.push(stack.pop());c=JSON.parse(stack[stack.length-1]);apply(false);toast('Undo')}function redo(){if(!redoStack.length)return;c=JSON.parse(redoStack.pop());apply();toast('Redo')}function copyCode(){navigator.clipboard?.writeText($('output').textContent).then(()=>toast('CSS copied to clipboard')).catch(()=>toast('Copy failed'))}function openSave(){$('modal').classList.add('open');$('name').focus()}function closeSave(){$('modal').classList.remove('open')}function savePreset(){let a=JSON.parse(localStorage.getItem('saved-glass')||'[]');a.push({name:$('name').value||'Untitled glass',config:c});localStorage.setItem('saved-glass',JSON.stringify(a));closeSave();renderSaved();toast('Preset saved')}function renderSaved(){let a=JSON.parse(localStorage.getItem('saved-glass')||'[]');$('savedList').innerHTML=a.length?a.map((x,i)=>`<div style="display:flex;justify-content:space-between;border-bottom:1px solid #ffffff18;padding:10px 0"><b>${x.name}</b><span><button class="ghost" onclick="c={...D,...JSON.parse(localStorage.getItem('saved-glass'))[${i}].config};apply();toast('Preset loaded')">Load</button><button class="ghost" onclick="del(${i})">Delete</button></span></div>`).join(''):'No saved glass yet. Create a style you love and save it here.'}function del(i){let a=JSON.parse(localStorage.getItem('saved-glass'));a.splice(i,1);localStorage.setItem('saved-glass',JSON.stringify(a));renderSaved();toast('Preset deleted')}function exportConfig(){let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(c,null,2)],{type:'application/json'}));a.download='glass-config.json';a.click();toast('Configuration exported')}function changeCard(v){$('ct').textContent={"Glass Card":'Frosted clarity.',"Profile Card":'Meet your future.',"Pricing Card":'Simple, elevated.',Notification:'You are all caught up.'}[v]}function go(id){$(id).scrollIntoView({behavior:'smooth'})}document.querySelectorAll('.range,.color').forEach(e=>e.addEventListener('input',()=>{let id=e.id;c[id]=e.type==='color'?e.value:Number(e.value);if(id==='tint')$('tintText').value=e.value;apply()}));$('tintText').addEventListener('input',e=>{if(/^#[\da-f]{6}$/i.test(e.target.value)){c.tint=e.target.value;$('tint').value=e.target.value;apply()}});$('preview').addEventListener('mousemove',e=>{let r=e.currentTarget.getBoundingClientRect();$('glow').style.left=e.clientX-r.left+'px';$('glow').style.top=e.clientY-r.top+'px'});$('presetGrid').innerHTML=P.map((p,i)=>`<button class="preset" style="--p1:${p[1]};--p2:${p[2]}" onclick="preset(P[${i}])"><b>${p[0]}</b></button>`).join('');try{c={...D,...JSON.parse(localStorage.getItem('glass-config'))}}catch{}apply(false);stack.push(JSON.stringify(c));renderSaved();document.addEventListener('keydown',e=>{if(e.key.toLowerCase()==='r'&&!e.shiftKey)randomize();if(e.key.toLowerCase()==='r'&&e.shiftKey)reset();if((e.ctrlKey||e.metaKey)&&e.key==='z'){e.preventDefault();e.shiftKey?redo():undo()}});
-</script></body></html>
+<!doctype html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Glass Lab — Glassmorphism Generator</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="app">
+            <nav class="nav">
+                <div class="brand"><span class="logo"></span>Glass Lab</div>
+                <div class="links">
+                    <button onclick="go('generator')">Generator</button
+                    ><button onclick="go('presets')">Presets</button
+                    ><button onclick="go('saved')">Saved</button>
+                </div>
+                <div>
+                    <button class="ghost" onclick="undo()">↶</button
+                    ><button class="ghost" onclick="redo()">↷</button
+                    ><button class="primary" onclick="randomize()">
+                        ✦ Randomize
+                    </button>
+                </div>
+            </nav>
+            <header class="hero">
+                <div>
+                    <div class="eyebrow">Interactive CSS Tool · v1.0</div>
+                    <h1>
+                        Design beautiful glass.<br /><span>Copy the CSS.</span>
+                    </h1>
+                    <p>
+                        Eksplorasi permukaan kaca secara visual, tuning setiap
+                        detail, lalu bawa style yang kamu suka langsung ke
+                        proyekmu.
+                    </p>
+                </div>
+                <div class="hero-art"><i></i><i></i></div>
+            </header>
+            <main id="generator" class="workspace">
+                <section class="surface">
+                    <div class="head">
+                        <div>
+                            <div class="title">Live preview</div>
+                            <div class="sub">Drag, tune, create</div>
+                        </div>
+                        <button class="ghost" onclick="reset()">Reset</button>
+                    </div>
+                    <div class="preview" id="preview">
+                        <div class="grid"></div>
+                        <div class="glow" id="glow"></div>
+                        <div class="tools">
+                            <select
+                                class="select"
+                                onchange="changeCard(this.value)"
+                            >
+                                <option>Glass Card</option>
+                                <option>Profile Card</option>
+                                <option>Pricing Card</option>
+                                <option>Notification</option></select
+                            ><span class="sub">⌘ move pointer</span>
+                        </div>
+                        <article class="card" id="card">
+                            <div class="badge">GLASS UI</div>
+                            <h2 id="ct">Frosted clarity.</h2>
+                            <p id="cp">
+                                Create beautiful translucent surfaces with blur,
+                                borders, shadows, and layered light.
+                            </p>
+                            <div class="foot">
+                                <div class="avatars">
+                                    <i class="av"></i><i class="av"></i
+                                    ><i class="av"></i>
+                                </div>
+                                <button class="card-btn">
+                                    Explore style →
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+                <section class="surface controls">
+                    <div class="group">
+                        <h3>Glass <span>01</span></h3>
+                        <div class="control">
+                            <div class="label">
+                                Transparency
+                                <output class="val" id="transparencyV"></output>
+                            </div>
+                            <input
+                                class="range"
+                                id="transparency"
+                                type="range"
+                                min="0"
+                                max="100"
+                                value="12"
+                            />
+                        </div>
+                        <div class="control">
+                            <div class="label">
+                                Backdrop blur
+                                <output class="val" id="blurV"></output>
+                            </div>
+                            <input
+                                class="range"
+                                id="blur"
+                                type="range"
+                                min="0"
+                                max="50"
+                                value="18"
+                            />
+                        </div>
+                        <div class="row">
+                            <div class="control">
+                                <div class="label">
+                                    Saturation
+                                    <output
+                                        class="val"
+                                        id="saturationV"
+                                    ></output>
+                                </div>
+                                <input
+                                    class="range"
+                                    id="saturation"
+                                    type="range"
+                                    min="50"
+                                    max="250"
+                                    value="150"
+                                />
+                            </div>
+                            <div class="control">
+                                <div class="label">
+                                    Brightness
+                                    <output
+                                        class="val"
+                                        id="brightnessV"
+                                    ></output>
+                                </div>
+                                <input
+                                    class="range"
+                                    id="brightness"
+                                    type="range"
+                                    min="50"
+                                    max="150"
+                                    value="100"
+                                />
+                            </div>
+                        </div>
+                        <div class="control">
+                            <div class="label">
+                                Glass tint
+                                <output class="val" id="tintV"></output>
+                            </div>
+                            <div class="color">
+                                <input
+                                    id="tint"
+                                    type="color"
+                                    value="#ffffff"
+                                /><input
+                                    id="tintText"
+                                    class="text"
+                                    value="#ffffff"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <h3>Border <span>02</span></h3>
+                        <div class="row">
+                            <div class="control">
+                                <div class="label">
+                                    Width
+                                    <output
+                                        class="val"
+                                        id="borderWidthV"
+                                    ></output>
+                                </div>
+                                <input
+                                    class="range"
+                                    id="borderWidth"
+                                    type="range"
+                                    min="0"
+                                    max="5"
+                                    step=".5"
+                                    value="1"
+                                />
+                            </div>
+                            <div class="control">
+                                <div class="label">
+                                    Opacity
+                                    <output
+                                        class="val"
+                                        id="borderOpacityV"
+                                    ></output>
+                                </div>
+                                <input
+                                    class="range"
+                                    id="borderOpacity"
+                                    type="range"
+                                    min="0"
+                                    max="100"
+                                    value="22"
+                                />
+                            </div>
+                        </div>
+                        <div class="control">
+                            <div class="label">
+                                Radius
+                                <output class="val" id="radiusV"></output>
+                            </div>
+                            <input
+                                class="range"
+                                id="radius"
+                                type="range"
+                                min="0"
+                                max="64"
+                                value="24"
+                            />
+                        </div>
+                        <div class="row">
+                            <div class="control">
+                                <div class="label">Border color</div>
+                                <input
+                                    id="borderColor"
+                                    type="color"
+                                    value="#ffffff"
+                                />
+                            </div>
+                            <div class="control">
+                                <div class="label">Shadow color</div>
+                                <input
+                                    id="shadowColor"
+                                    type="color"
+                                    value="#000000"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <h3>Shadow <span>03</span></h3>
+                        <div class="row">
+                            <div class="control">
+                                <div class="label">
+                                    X
+                                    <output class="val" id="shadowXV"></output>
+                                </div>
+                                <input
+                                    class="range"
+                                    id="shadowX"
+                                    type="range"
+                                    min="-50"
+                                    max="50"
+                                    value="0"
+                                />
+                            </div>
+                            <div class="control">
+                                <div class="label">
+                                    Y
+                                    <output class="val" id="shadowYV"></output>
+                                </div>
+                                <input
+                                    class="range"
+                                    id="shadowY"
+                                    type="range"
+                                    min="-60"
+                                    max="60"
+                                    value="24"
+                                />
+                            </div>
+                        </div>
+                        <div class="control">
+                            <div class="label">
+                                Blur
+                                <output class="val" id="shadowBlurV"></output>
+                            </div>
+                            <input
+                                class="range"
+                                id="shadowBlur"
+                                type="range"
+                                min="0"
+                                max="150"
+                                value="50"
+                            />
+                        </div>
+                        <div class="control">
+                            <div class="label">
+                                Opacity
+                                <output
+                                    class="val"
+                                    id="shadowOpacityV"
+                                ></output>
+                            </div>
+                            <input
+                                class="range"
+                                id="shadowOpacity"
+                                type="range"
+                                min="0"
+                                max="100"
+                                value="30"
+                            />
+                        </div>
+                    </div>
+                    <div class="group">
+                        <h3>Advanced <span>04</span></h3>
+                        <div class="label">
+                            Reflection
+                            <button
+                                class="toggle on"
+                                id="reflection"
+                                onclick="
+                                    this.classList.toggle('on');
+                                    apply();
+                                "
+                            >
+                                <i></i>
+                            </button>
+                        </div>
+                        <div class="control">
+                            <div class="label">
+                                Reflection intensity
+                                <output class="val" id="reflectionV"></output>
+                            </div>
+                            <input
+                                class="range"
+                                id="reflectionIntensity"
+                                type="range"
+                                min="0"
+                                max="50"
+                                value="12"
+                            />
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <section class="surface code">
+                <div class="head">
+                    <div>
+                        <div class="title">Generated code</div>
+                        <div class="sub">Production-ready output</div>
+                    </div>
+                    <div>
+                        <button class="ghost" onclick="openSave()">
+                            ＋ Save preset</button
+                        ><button class="primary" onclick="copyCode()">
+                            Copy code
+                        </button>
+                    </div>
+                </div>
+                <div class="tabs">
+                    <button class="active" data-tab="css" onclick="tab(this)">
+                        CSS</button
+                    ><button data-tab="vars" onclick="tab(this)">
+                        CSS Variables</button
+                    ><button data-tab="tailwind" onclick="tab(this)">
+                        Tailwind</button
+                    ><button data-tab="react" onclick="tab(this)">React</button>
+                </div>
+                <pre id="output"></pre>
+            </section>
+            <section class="surface gallery" id="presets">
+                <div class="head">
+                    <div>
+                        <div class="title">Curated presets</div>
+                        <div class="sub">Start with a considered direction</div>
+                    </div>
+                </div>
+                <div class="presets" id="presetGrid"></div>
+            </section>
+            <section class="surface gallery" id="saved">
+                <div class="head">
+                    <div>
+                        <div class="title">Saved styles</div>
+                        <div class="sub">Stored locally in your browser</div>
+                    </div>
+                    <button class="ghost" onclick="exportConfig()">
+                        Export config ↓
+                    </button>
+                </div>
+                <div class="saved" id="savedList">
+                    No saved glass yet. Create a style you love and save it
+                    here.
+                </div>
+            </section>
+            <footer
+                style="
+                    display: flex;
+                    justify-content: space-between;
+                    color: #697184;
+                    font-size: 11px;
+                    padding: 22px 4px;
+                "
+            >
+                <span>Glass Lab · Design beautiful glass.</span
+                ><span
+                    >Everything stays in your browser · Press R to
+                    randomize</span
+                >
+            </footer>
+        </div>
+        <div class="toast" id="toast"></div>
+        <div class="modal" id="modal">
+            <div class="dialog">
+                <h3>Save your glass</h3>
+                <input class="text" id="name" placeholder="Preset name" />
+                <div class="actions">
+                    <button class="ghost" onclick="closeSave()">Cancel</button
+                    ><button class="primary" onclick="savePreset()">
+                        Save preset
+                    </button>
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
